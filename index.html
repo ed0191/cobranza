@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio Suspendido - Tecno En Casa Wifi</title>
+    
+    <style>
+        /* Estilos Base para la Presentación */
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            margin: 40px; 
+            background-color: #f4f4f9; 
+        }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            padding: 30px; 
+            border-radius: 10px; 
+            background-color: #ffffff; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+        }
+        h1 { 
+            color: #cc0000; 
+            font-size: 28px; 
+            border-bottom: 2px solid #cc0000; 
+            padding-bottom: 10px; 
+            margin-bottom: 20px;
+        }
+        h2 { 
+            color: #333; 
+            font-size: 20px; 
+            margin-top: 20px; 
+        }
+        p { 
+            color: #666; 
+            line-height: 1.6; 
+            margin: 10px 0;
+        }
+        .btn { 
+            display: inline-block; 
+            padding: 12px 25px; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            font-weight: bold; 
+            margin-top: 15px; 
+            cursor: pointer; 
+            border: none; 
+            transition: all 0.3s ease;
+        }
+        
+        /* Estilos de Botones Específicos */
+        .btn-success { background-color: #28a745; color: white; }
+        .btn-info { background-color: #17a2b8; color: white; }
+        .btn-secondary { background-color: #6c757d; color: white; }
+        .btn:hover { 
+            opacity: 0.85; 
+            transform: translateY(-2px);
+        }
+        .btn-copy { 
+            background: none; 
+            color: #007bff; 
+            border: 1px solid #007bff; 
+            padding: 5px 10px; 
+            margin-left: 10px; 
+            font-size: 14px; 
+            float: right; 
+            border-radius: 3px;
+        }
+        .btn-copy:hover { 
+            background-color: #007bff; 
+            color: white; 
+        }
+
+        /* Estilos de la Tabla */
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 20px; 
+            text-align: left; 
+        }
+        th, td { 
+            padding: 12px; 
+            border: 1px solid #ddd; 
+            word-break: break-word; 
+        }
+        th { 
+            background-color: #f8f8f8; 
+            width: 35%; 
+            font-weight: bold;
+        }
+        code { 
+            background-color: #eee; 
+            padding: 2px 4px; 
+            border-radius: 3px; 
+            font-weight: bold; 
+            font-family: monospace;
+        }
+
+        /* Estilos del Modal (Ventana Emergente) */
+        .modal { 
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.5); 
+        }
+        .modal-content { 
+            background-color: #fefefe; 
+            margin: 5% auto; 
+            padding: 20px; 
+            border: 1px solid #888; 
+            width: 90%; 
+            max-width: 500px; 
+            border-radius: 8px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+            position: relative;
+        }
+        .modal-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid #eee; 
+            padding-bottom: 10px; 
+            margin-bottom: 15px; 
+        }
+        .modal-footer { 
+            border-top: 1px solid #eee; 
+            padding-top: 15px; 
+            margin-top: 15px; 
+            text-align: right; 
+        }
+        .close-btn { 
+            color: #aaa; 
+            float: right; 
+            font-size: 28px; 
+            font-weight: bold; 
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .close-btn:hover, .close-btn:focus { 
+            color: #000; 
+            text-decoration: none; 
+        }
+
+        /* Contenedor de Alerta */
+        .alert { 
+            padding: 15px; 
+            background-color: #fff3cd; 
+            color: #856404; 
+            border: 1px solid #ffeeba; 
+            border-radius: 5px; 
+            margin: 20px 0;
+        }
+
+        /* Mejoras responsivas */
+        @media (max-width: 768px) {
+            body {
+                margin: 20px 10px;
+            }
+            .container {
+                padding: 20px 15px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Su servicio tiene solo una Pausa</h1>
+        
+        <div class="alert">
+            <strong>Estimado Cliente:</strong> Su acceso a Internet ha sido limitado automáticamente por Saldo Pendiente.
+        </div>
+        
+        <p>Para restablecer su conexión, por favor, elija una opción de pago a continuación.</p>
+
+        <h2 style="color: #007bff;">OPCIONES DE PAGO:</h2>
+
+        <button id="abrirModalBtn" class="btn btn-info" style="width: 90%; margin-bottom: 10px;">
+            📊 Ver Datos para Transferencia
+        </button>
+        
+        <p style="font-size: 16px; margin-top: 20px; color: #dc3545; font-weight: bold;">
+            ⚠️ Importante: La reactivación es casi inmediata al enviar el comprobante de transferencia por WhatsApp.
+        </p>
+        <div class="game-box">
+        <h3 style="color:#333;font-weight:bold;">🎮 Juego del Dinosaurio</h3>
+        <iframe src="dino.html" width="400" height="300"></iframe>
+        </div>
+
+        <hr style="border-top: 1px solid #eee; margin: 25px 0;">
+
+        <div class="contact-info">
+            <p style="margin-bottom: 5px;"><strong>¿Ya pagó o tiene dudas?</strong></p>
+            <p>Soporte por WhatsApp: 
+                <a href="https://wa.me/527752361712" target="_blank" style="color: #25d366; text-decoration: none; font-weight: bold;">
+                    📱 Enviar Mensaje
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Modal de Datos Bancarios -->
+    <div id="datosBancariosModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 style="color: #17a2b8; margin: 0;">Datos para Transferencia Bancaria</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Utiliza esta información para realizar el depósito o la transferencia.</p>
+                <div style="overflow-x: auto;">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th colspan="2" style="background-color: #e6f7ff; text-align: center; color: #17a2b8;">
+                                    🏦 BANCO 1: BBVA 
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>Beneficiario</th>
+                                <td>Lizbeth Hernandez A.</td>
+                            </tr>
+                            <tr>
+                                <th>Número de Cuenta</th>
+                                <td>
+                                    <code id="cuenta-data-1">150 838 4068</code> 
+                                    <button class="btn-copy" onclick="copiarDato('cuenta-data-1')">Copiar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>CLABE Interbancaria</th>
+                                <td>
+                                    <code id="clabe-data-1">012 180 01508384068 5</code> 
+                                    <button class="btn-copy" onclick="copiarDato('clabe-data-1')">Copiar</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2" style="height: 15px; background-color: #f4f4f9;"></td>
+                            </tr>
+
+                            <tr>
+                                <th colspan="2" style="background-color: #e6f7ff; text-align: center; color: #17a2b8;">
+                                    🏦 BANCO 2: AZTECA
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>Beneficiario</th>
+                                <td>Edwin Castillo P.</td>
+                            </tr>
+                            <tr>
+                                <th>Ventanilla</th>
+                                <td>
+                                    <code id="cuenta-data-2">9546 1673 5752 79</code> 
+                                    <button class="btn-copy" onclick="copiarDato('cuenta-data-2')">Copiar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>CLABE Interbancaria</th>
+                                <td>
+                                    <code id="clabe-data-2">1271 8001 6735 7527 95</code> 
+                                    <button class="btn-copy" onclick="copiarDato('clabe-data-2')">Copiar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="alert" style="margin-top: 15px;">
+                    <strong>¡MUY IMPORTANTE!</strong> Envía tu comprobante por WhatsApp al número de soporte para la reactivación.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="https://wa.me/527752361712" target="_blank" class="btn btn-success">
+                    📤 Enviar Comprobante por WhatsApp
+                </a>
+                <button class="btn btn-secondary close-btn-footer">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Funcionalidad del Modal
+        const modal = document.getElementById("datosBancariosModal");
+        const btn = document.getElementById("abrirModalBtn");
+        const span = document.querySelector(".close-btn");
+        const closeBtnFooter = document.querySelector(".close-btn-footer");
+
+        // Abrir modal
+        btn.addEventListener('click', function() {
+            modal.style.display = "block";
+        });
+
+        // Cerrar modal
+        function cerrarModal() {
+            modal.style.display = "none";
+        }
+
+        span.addEventListener('click', cerrarModal);
+        closeBtnFooter.addEventListener('click', cerrarModal);
+
+        // Cerrar al hacer clic fuera del modal
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                cerrarModal();
+            }
+        });
+
+        // Funcionalidad de Copiar mejorada
+        function copiarDato(idElemento) {
+            const elemento = document.getElementById(idElemento);
+            const texto = elemento.textContent;
+            
+            // Usar la API moderna de portapapeles
+            navigator.clipboard.writeText(texto).then(function() {
+                // Feedback visual
+                const boton = event.target;
+                const textoOriginal = boton.textContent;
+                boton.textContent = '✓ Copiado';
+                boton.style.backgroundColor = '#28a745';
+                boton.style.color = 'white';
+                boton.style.borderColor = '#28a745';
+                
+                setTimeout(() => {
+                    boton.textContent = textoOriginal;
+                    boton.style.backgroundColor = '';
+                    boton.style.color = '#007bff';
+                    boton.style.borderColor = '#007bff';
+                }, 2000);
+                
+            }).catch(function(err) {
+                console.error('Error al copiar: ', err);
+                alert("No se pudo copiar automáticamente. Por favor, selecciona y copia manualmente.");
+            });
+        }
+
+        // Cerrar modal con tecla ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                cerrarModal();
+            }
+        });
+    </script>
+</body>
+</html>
